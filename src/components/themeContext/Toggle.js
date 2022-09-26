@@ -7,7 +7,7 @@ const Toggle = () => {
   return (
     <div>
       {theme === "dark" ? (
-        <button
+        <div
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           className="text-cyan-500  hover:bg-gray-100 dark:hover:bg-gray-700  dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 cursor-pointer"
         >
@@ -28,9 +28,9 @@ const Toggle = () => {
               className="stroke-sky-500"
             ></path>
           </svg>
-        </button>
+        </div>
       ) : (
-        <button
+        <div
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           className="text-cyan-500 hover:bg-gray-100 dark:hover:bg-gray-700  dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 cursor-pointer"
         >
@@ -52,7 +52,7 @@ const Toggle = () => {
               className="fill-sky-500"
             ></path>
           </svg>
-        </button>
+        </div>
       )}
     </div>
   );

@@ -6,4 +6,12 @@
 body {
     @apply antialiased text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-900;
   }
-  
+
+  .gradient-btn{
+  @apply  py-2 w-full  text-xl my-3 text-white bg-gradient-to-r from-cyan-300 to-sky-600 rounded-2xl;
+
+  }
+  .gradient-btn:hover{
+    @apply   bg-gradient-to-r from-sky-600 to-cyan-300 rounded-2xl;
+
+  }

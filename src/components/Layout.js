@@ -1,14 +1,14 @@
 import React from "react";
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 
 export default function Layout({ children }) {
   return (
     <>
-      <header>
+      {/* <header>
         <Navbar />
-      </header>
+      </header> */}
       <main>
-        <div className="container mt-[60px]">{children}</div>
+        <div className="container">{children}</div>
       </main>
     </>
   );
