@@ -1,7 +1,25 @@
-import React from 'react'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Layout from "./components/Layout";
+import { ThemeProvider } from "./components/themeContext/themeContext";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import Home from "./components/Home";
 
-export default function App() {
+function App() {
   return (
-    <div className='text-red-500 font-medium text-2xl'> React Chat App</div>
-  )
+    <Router>
+      <ThemeProvider>
+        <Layout>
+          {" "}
+          <Routes>
+            <Route exact path="/" element={<Login />} />
+            <Route exact path="/signup" element={<Signup />} />
+            <Route exact path="/home" element={<Home />} />
+          </Routes>
+        </Layout>
+      </ThemeProvider>
+    </Router>
+  );
 }
+
+export default App;
