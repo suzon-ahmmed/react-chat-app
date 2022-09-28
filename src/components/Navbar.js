@@ -1,37 +1,15 @@
-import React from "react";
-import Toggle from "./themeContext/Toggle";
-import logo from "../assets/images/Tailwind.png";
-import { Link } from "react-router-dom";
+import React from 'react'
+import User from '../assets/images/user.jpg'
+import { FiLogOut } from "react-icons/fi";
 
-const Navbar = () => {
+export default function Navbar() {
   return (
-    <header className="fixed top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 lg:border-b lg:border-slate-900/10 dark:border-slate-50/[0.06] bg-white supports-backdrop-blur:bg-white/95 dark:bg-slate-800/75">
-      <div className="flex items-center justify-between container h-[60px]  text-slate-700 dark:text-slate-200">
-        <div>
-          <Link
-            to="/"
-            className="flex items-center space-x-2 font-medium text-[22px] text-slate-900 dark:text-white"
-          >
-            <img src={logo} alt="tailwind" className="w-9 h-9" />
-            <span>Chat App</span>
-          </Link>
+    <div className='flex justify-between items-center px-4 h-[78px] border-b-2 dark:bg-gray-800 dark:border-gray-700 '>
+        <div className='flex items-center space-x-2'>
+            <img src={User} className="w-12 h-12 rounded-full ring-2 ring-cyan-700 object-contain"  alt="" />
+            <p className='font-semibold text-2xl w-40 leading-none truncate'>User Name</p>
         </div>
-
-        <div className="flex items-center space-x-6 text-sm font-semibold">
-          <Link to="/">
-            <span>Login</span>
-          </Link>{" "}
-          <Link to="/home">
-            <span>Home</span>
-          </Link>{" "}
-          <Link to="/signup">
-            <span>Signup</span>
-          </Link>
-          <Toggle />
-        </div>
-      </div>
-    </header>
-  );
-};
-
-export default Navbar;
+        <button><FiLogOut className='text-2xl font-bold' /></button>
+    </div>
+  )
+}
