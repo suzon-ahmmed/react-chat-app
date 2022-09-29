@@ -10,7 +10,7 @@ export default function Home() {
   };
   return (
     <div className="xl:h-[calc(100vh-32px)] h-screen xl:my-4">
-      <div className="flex h-full relative bg-white xl:rounded-2xl overflow-hidden shadow-xl dark:bg-gray-800 dark:border-gray-700">
+      <div className="flex h-full relative bg-white xl:rounded-2xl overflow-hidden drop-shadow-lg dark:bg-gray-800 dark:border-gray-700">
         <Sidebar sodebar={sidebar} toggleSidebar={toggleSidebar} />
         <div
           className={sidebar ? "backdrop-open left-[320px]" : "backdrop left-0"}
