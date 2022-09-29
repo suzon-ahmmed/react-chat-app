@@ -8,7 +8,7 @@ export default function Layout({ children }) {
         <Navbar />
       </header> */}
       <main>
-        <div className="lg:container h-screen">{children}</div>
+        <div className="xl:container h-full">{children}</div>
       </main>
     </>
   );
