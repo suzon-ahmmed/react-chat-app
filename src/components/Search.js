@@ -40,11 +40,10 @@ export default function Search() {
   };
 
   const handleSelect = async () => {
- 
     const combinedId =
       currentUser.uid > user.uid
-        ? currentUser.displayName + " - " + user.displayName
-        : user.displayName + " - " + currentUser.displayName;
+        ? currentUser.uid + user.uid
+        : user.uid + currentUser.uid;
     try {
       const res = await getDoc(doc(db, "chats", combinedId));
 

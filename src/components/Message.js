@@ -1,7 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import User from "../assets/images/user.jpg";
+import { AuthContext } from "../context/AuthContext";
+import { ChatContext } from "../context/ChatContext";
 
-export default function Message() {
+export default function Message({message}) {
+  const {currentUser} = useContext(AuthContext);
+  const {data}= useContext(ChatContext);
+  console.log(message);
   return (
     <>
       <div className="flex gap-4 items-end mt-2">
