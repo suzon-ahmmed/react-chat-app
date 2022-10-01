@@ -25,7 +25,7 @@ export default function ChatList() {
   const handelSelect = (u) => {
     dispatch({ type: "CHANGE_USER", payload: u });
   };
-  console.log(chats)
+  // console.log(chats)
 
   return (
     <div className="max-h-[calc(100%-55px)] mb-[55px] overflow-auto">
@@ -33,7 +33,7 @@ export default function ChatList() {
         <div
           key={chat[0]}
           onClick={() => handelSelect(chat[1].userInfo)}
-          className="px-4 py-2 flex items-center space-x-2 hover:bg-cyan-200/40 cursor-pointer"
+          className="px-4 py-2 flex items-center space-x-3 hover:bg-cyan-200/40 cursor-pointer"
         >
           <img
             src={chat[1].userInfo.photoURL}
@@ -42,7 +42,7 @@ export default function ChatList() {
           />
           <div>
             <p className="font-semibold">{chat[1].userInfo.displayName}</p>
-            {/* <p className="text-sm">{chat[1].lastMessage?.text}</p> */}
+            <p className="text-xs">{chat[1].lastMessage?.text}</p>
           </div>
         </div>
       ))}
