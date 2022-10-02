@@ -19,7 +19,7 @@ export default function Messages() {
       unSub();
     };
   }, [data.chatId]);
-  console.log(data.user)
+  // console.log(data.user)
 
   return (
     <div className="h-[calc(100%-125px)] overflow-auto dark:bg-slate-900 bg-slate-100 p-2 sm:p-4">

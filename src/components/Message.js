@@ -61,7 +61,7 @@ export default function Message({ message }) {
           {message.img && (
             <img
               src={message.img}
-              className="object-contain w-1/2 rounded"
+              className="object-contain w-1/2 rounded mb-2"
               alt="your images"
             />
           )}

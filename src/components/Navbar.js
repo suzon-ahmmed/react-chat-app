@@ -11,7 +11,7 @@ export default function Navbar({ toggleSidebar }) {
       <div className="flex items-center space-x-2 ">
         <img
           src={currentUser.photoURL}
-          className="w-10 h-10 rounded-full ring-2 ring-cyan-700 object-contain"
+          className="w-10 h-10 rounded-full ring-2 ring-cyan-700 object-fill"
           alt=""
         />
         <p className="text-2xl w-40 leading-none truncate">

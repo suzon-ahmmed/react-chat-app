@@ -29,7 +29,7 @@ export default function ChatList() {
 
   return (
     <div className="max-h-[calc(100%-55px)] mb-[55px] overflow-auto">
-      {Object.entries(chats)?.sort((a,b)=>b[1].date - a[1].date).map((chat) => (
+      {chats && Object.entries(chats)?.sort((a,b)=>b[1].date - a[1].date).map((chat) => (
         <div
           key={chat[0]}
           onClick={() => handelSelect(chat[1].userInfo)}
@@ -37,12 +37,12 @@ export default function ChatList() {
         >
           <img
             src={chat[1].userInfo.photoURL}
-            className="w-10 h-10 rounded-full ring-2 ring-cyan-700 object-contain"
+            className="w-10 h-10 rounded-full ring-2 ring-cyan-700 object-fill"
             alt=""
           />
           <div>
             <p className="font-semibold">{chat[1].userInfo.displayName}</p>
-            <p className="text-xs">{chat[1].lastMessage?.text}</p>
+            <p className="text-xs text-clip overflow-hidden h-4">{chat[1].lastMessage?.text}</p>
           </div>
         </div>
       ))}
