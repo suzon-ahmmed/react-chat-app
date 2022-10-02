@@ -89,8 +89,9 @@ export default function Input() {
             // value={img}
           />
         </label>
+
         <button
-          onClick={handelSend} 
+          onClick={handelSend}
           className="bg-sky-400/20 dark:bg-sky-400/30 hover:bg-sky-400/30 dark:hover:bg-sky-400/20 w-14 h-9 rounded flex items-center justify-center"
         >
           <img src={Logo} className="w-8" alt="" />

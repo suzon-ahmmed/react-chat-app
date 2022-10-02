@@ -17,7 +17,7 @@ export default function ChatList() {
         unsub();
       };
     };
-    console.log("chake");
+    // console.log("chake");
 
     currentUser.uid && getChats();
   }, [currentUser.uid]);
