@@ -21,6 +21,7 @@ scroll-behavior: smooth;
 
 body {
     @apply antialiased text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-900;
+  
   }
 
   .gradient-btn{

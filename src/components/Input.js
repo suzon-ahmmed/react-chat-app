@@ -26,7 +26,7 @@ export default function Input() {
 
       uploadTask.on(
         (error) => {
-          //TODO:Handle Error
+          console.log(error);
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
@@ -42,7 +42,7 @@ export default function Input() {
           });
         }
       );
-    } else {
+    } else  {
       await updateDoc(doc(db, "chats", data.chatId), {
         messages: arrayUnion({
           id: uuid(),

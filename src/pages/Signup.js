@@ -6,11 +6,22 @@ import { Link, useNavigate } from "react-router-dom";
 import Logo from "../assets/images/send.png";
 import Toggle from "../components/themeContext/Toggle";
 import { auth, db, storage } from "../firebase";
+import { BsEyeSlash, BsEye } from "react-icons/bs";
 
 export default function Signup() {
   const [err, setErr] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+
+  const [type, setType] = useState("password");
+
+  const handelShowHide = () => {
+    if (type === "password") {
+      setType("text");
+    } else {
+      setType("password");
+    }
+  };
 
   const handleSubmit = async (e) => {
     setLoading("Please wait...");
@@ -99,18 +110,35 @@ export default function Signup() {
               placeholder="Email Addres"
               className="block text-sm py-3 px-4 my-3 focus:border-cyan-400 rounded-lg w-full border outline-none bg-transparent"
             />
-            <input
-              type="password"
-              required
-              placeholder="Password"
-              className="block text-sm py-3 px-4 my-3  focus:border-cyan-400 rounded-lg w-full border outline-none bg-transparent"
-            />
-            <input
-              type="password"
-              required
-              placeholder="Confirm Password"
-              className="block text-sm py-3 px-4 my-3  focus:border-cyan-400 rounded-lg w-full border outline-none bg-transparent"
-            />
+            <div className="relative">
+              <input
+                type={type === "password" ? "password" : "text"}
+                required
+                placeholder="Password"
+                className="block text-sm py-3 px-4 my-3  focus:border-cyan-400 rounded-lg w-full border outline-none bg-transparent"
+              />
+              <span
+                onClick={handelShowHide}
+                className="absolute right-4 top-[26px] text-lg cursor-pointer"
+              >
+                {type === "password" ? <BsEyeSlash /> : <BsEye />}
+              </span>
+            </div>
+            <div className="relative">
+              {" "}
+              <input
+                type={type === "password" ? "password" : "text"}
+                required
+                placeholder="Confirm Password"
+                className="block text-sm py-3 px-4 my-3  focus:border-cyan-400 rounded-lg w-full border outline-none bg-transparent"
+              />
+              <span
+                onClick={handelShowHide}
+                className="absolute right-4 top-[26px] text-lg cursor-pointer"
+              >
+                {type === "password" ? <BsEyeSlash /> : <BsEye />}
+              </span>
+            </div>
 
             <label className="flex relative text-sm py-2 pr-4 mt-3 mb-3 overflow-hidden focus:border-cyan-400 rounded-lg w-full border outline-none bg-transparent">
               <span className="text-base leading-normal absolute top-[7px] sm:top-[8px]  h-[34px] flex justify-center bg-white dark:bg-gray-800  w-[88px]">

@@ -4,9 +4,20 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import Logo from "../assets/images/send.png";
 import Toggle from "../components/themeContext/Toggle";
+import { BsEyeSlash, BsEye } from "react-icons/bs";
 
 export default function Login() {
   const [err, setErr] = useState(false);
+
+  const [type, setType] = useState("password");
+
+  const handelShowHide = () => {
+    if (type === "password") {
+      setType("text");
+    } else {
+      setType("password");
+    }
+  };
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -16,7 +27,7 @@ export default function Login() {
 
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      navigate("/")
+      navigate("/");
     } catch (err) {
       setErr(true);
     }
@@ -40,23 +51,39 @@ export default function Login() {
             </p>
           </div>
 
-          <form className="w-full flex flex-col justify-center" onSubmit={handleSubmit}>
+          <form
+            className="w-full flex flex-col justify-center"
+            onSubmit={handleSubmit}
+          >
             <input
               type="email"
               required
               placeholder="Email Addres"
               className="block text-sm py-3 px-4 my-3 focus:border-cyan-400 rounded-lg w-full border outline-none bg-transparent"
             />
-            <input
-              type="password"
-              required
-              placeholder="Password"
-              className="block text-sm py-3 px-4 mt-3 mb-3  focus:border-cyan-400 rounded-lg w-full border outline-none bg-transparent"
-            />
+            <div className="relative">
+              <input
+                type={type === "password" ? "password" : "text"}
+                required
+                placeholder="Password"
+                className="block text-sm py-3 px-4 mt-3 mb-3  focus:border-cyan-400 rounded-lg w-full border outline-none bg-transparent"
+              />
+              <span
+                onClick={handelShowHide}
+                className="absolute right-4 top-[26px] text-lg cursor-pointer"
+              >
+                {type === "password" ? <BsEyeSlash /> : <BsEye />}
+              </span>
+            </div>
+
             <button type="submit" className="gradient-btn">
               Login
             </button>
-            {err && <span className="bg-red-400/60 w-full p-2 text-center rounded-lg">Login Failed!</span>}
+            {err && (
+              <span className="bg-red-400/60 w-full p-2 text-center rounded-lg">
+                Login Failed!
+              </span>
+            )}
           </form>
 
           <p className="mt-3 text-sm">
@@ -67,7 +94,6 @@ export default function Login() {
                 Sign In
               </span>
             </Link>
-            
           </p>
         </div>
       </div>

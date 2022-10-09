@@ -8,6 +8,10 @@ export default function ChatList() {
   const { currentUser } = useContext(AuthContext);
   const { dispatch } = useContext(ChatContext);
 
+  // auth.onAuthStateChanged(activUser => {
+  //   console.log(activUser);
+  // })
+
   useEffect(() => {
     const getChats = () => {
       const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
